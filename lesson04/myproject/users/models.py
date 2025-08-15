@@ -19,7 +19,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     ]
     role=models.CharField(max_length=20,choices=ROLE_CHOICES,default='member')
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ['first_name','last_name','phone','email','role']
+    REQUIRED_FIELDS = ['first_name','last_name']
 
     objects = CustomUserManager()
     def __str__(self):
