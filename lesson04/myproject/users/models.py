@@ -12,12 +12,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name=models.CharField(_("first name"), max_length=20)
     last_name=models.CharField(_('last name'), max_length=20)
     phone=models.CharField(_("phone number"), max_length=10)
-    ROLE_CHOICES=[
-        ('member','member'),
-        ('admin','admin'),
-        ('librarian','librarian'),
-    ]
-    role=models.CharField(max_length=20,choices=ROLE_CHOICES,default='member')
+   
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ['first_name','last_name']
 
