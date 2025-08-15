@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ar">
+<head>
+    <link rel="stylesheet" href="{% static 'css/resetpass.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تغيير كلمةالسر</title>
+</head>
+<body>
+
+<main>
+    <form class='resetpass' action="" method='post'>
+        {% csrf_token %}
+        <div class="form_info">
+
+        
+        <label for="email">يرجى ادخال بريدك الاكتروني</label>
+
+        <input name='email' id='email' type="email" placeholder='البريد الاكتروني' dir='rtl' >
+        {% if mesyes %}
+        <p style="color:green;">{{mesyes}}</p>
+
+        {% endif %}
+        {% if mesno %}
+                <p style='color:red;'>{{mesno}}</p>
+
+        {% endif %}
+        </div>
+        <button type='submit'>ارسال</button>
+    </form>
+</main>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">    <meta charset="UTF-8">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل</title>
+</head>
+<body>
+    <main>
+{% if message %}
+  <div id="toast" style="position: fixed; top: 20px; right: 20px; background: red; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000;">
+      {{ message }}
+  </div>
+  <script>
+    setTimeout(function() {
+      var toast = document.getElementById("toast");
+      if (toast) {
+        toast.style.display = "none";
+      }
+    }, 3000);  // الإخفاء بعد 3 ثواني
+  </script>
+{% endif %}
+
+
+        <form class='login' method='post' action="{% url 'login' %}">
+                    <h1 style='text-align:center; margin:.3rem 0;'>تسجيل الدخول</h1>
+{% csrf_token %}
+      <div class='form_info'>
+
+            <input name='email' type="email" placeholder='البريد الالكتروني'>
+            <input name='password' type="password" placeholder='كلمة السر'>
+        </div>
+         <button type='submit'>الدخول</button>
+            <button>الاستمرار بحساب Google</button>
+            <p>هل نسيت كلمة السر؟<a href="{% url 'resetpassword'%}">استرجاع</a></p>
+        </form>
+    
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ar" dir='rtl'>
+<head>
+    <link rel="stylesheet" href="{% static 'css/changepass.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تغيير كلمةالسر</title>
+</head>
+<body>
+
+<main>
+    <form class='resetpass' action="{% url 'changepassword' %}" method='post'>
+        {% csrf_token %}
+        <p style='text-align:center;'>يمكنك تغيير كلمة السر</p>
+        <div class="form_info">
+             <input name='password1' id='password1' type="password" placeholder='كلمة السر' >
+            <input name='password2' id='password2' type="password" placeholder='اعد كلمة السر'>
+            
+        </div>
+        {% if mes %}
+            <p style='color:red;'>{{mes}}</p>
+        {% endif %}
+        <button type='submit'>حفظ</button>
+    </form>
+</main>
+    
+</body>
+</html>

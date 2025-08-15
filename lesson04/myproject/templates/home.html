@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ar" dir='rtl'>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعنا</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">اهدافنا</a></li>
+            <li><a href="#">اخبارنا</a></li>
+            <li><a href="#">اتصل بنا</a></li>
+        </ul>
+
+        <div class="join">
+{% if not user.is_authenticated %}
+    <a href="{% url 'register' %}">تسجيل</a>
+    <a href="{% url 'login' %}">دخول</a>
+{% else %}
+    <a href="{% url 'logout' %}">تسجيل الخروج</a>
+{% endif %}
+
+        </div>
+    </header>
+
+
+<main>
+<form action="/your-name/" method="post">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
+
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% if messages %}
+  {% for message in messages %}
+    <div id="toast" style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    ">
+        {{ message }}
+    </div>
+    <script>
+      setTimeout(function() {
+        var toast = document.getElementById("toast");
+        if (toast) {
+          toast.style.display = "none";
+        }
+      }, 3000);
+    </script>
+  {% endfor %}
+{% endif %}
+
+</body>
+</html>

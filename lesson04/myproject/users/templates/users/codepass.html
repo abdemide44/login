@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ar" dir='rtl'>
+<head>
+     <link rel="stylesheet" href="{% static 'css/codepass.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تأكيد الرمز</title>
+</head>
+<body>
+
+
+    <main>
+    <form class='codepass' action="{% url 'codepassword' %}" method='POST'>
+        {% csrf_token %}
+        <div class="form_info">
+
+        
+        <label for="code">يرجى ادخال الرمز المرسل الى بريدك الاكتروني</label>
+
+        <input name='code' id='code' type="text" placeholder='الرمز' dir='rtl' >
+    
+        </div>
+        {% if mes %}
+        <p style='color:red;'>{{mes}}</p>
+        {% endif %}
+        <button type='submit'>تحقق</button>
+    </form>
+</main>
+    
+</body>
+</html>
