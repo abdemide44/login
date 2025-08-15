@@ -1,8 +1,6 @@
 Django==4.2.5
-psycopg2-binary==2.9.9      # إذا استخدمت PostgreSQL
-Pillow==10.2.0               # للصور
-bcrypt==3.2.2                # لو تستخدم authentication
+Pillow==9.5.0
+bcrypt==3.2.2
 python-dateutil==2.8.2
-PyJWT==2.7.0                 # لو تستخدم JWT authentication
-requests==2.31.0             # لو في استدعاءات API خارجية
-
+PyJWT==2.7.0
+requests==2.31.0
