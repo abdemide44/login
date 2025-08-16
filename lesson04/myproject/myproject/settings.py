@@ -81,12 +81,17 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'yamane_school',
+        'USER': 'yamane_school_user',
+        'PASSWORD': 'bqn5f1OJ58yB62mfLVxiPn9c0yXX4sYh',
+        'HOST': 'dpg-d2g7vr7diees73d6pecg-a',
+        'PORT': '5432',  # عادة المنفذ هو 5432
+        'OPTIONS': {
+            'sslmode': 'require',  # هذا يعني: استخدم اتصال مشفر بـ SSL
+        },
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
